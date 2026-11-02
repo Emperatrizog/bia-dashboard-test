@@ -117,7 +117,7 @@ Separé hechos de hipótesis: el consumo nocturno sin explicar queda sin asignar
 Mantuve el siguiente paso como una sola recomendación, sin lista de tareas, porque la persona tiene pocos minutos para decidir.
 
 ## Herramientas y AI
-React 19, esbuild, react-icons e Inter. Diseñé e iteré con Claude (Anthropic) como asistente, a partir de un sketch propio y de referencias visuales tomadas de bia.app: implementación en React, alternativas de diseño, borradores de texto y pruebas en navegador. La imagen del encabezado proviene de pngtree.com, bajo su licencia. Los renders de cada sede los generé a partir de referencias con ChatGPT y Gemini.
+React 19, esbuild, react-icons e Inter. Diseñé e iteré con Claude (Anthropic) como asistente, a partir de un sketch propio y de referencias visuales tomadas de bia.app: implementación en React, alternativas de diseño, borradores de texto y pruebas en navegador. Todas las imágenes de Bia son hechas con AI generativa: los renders de cada sede los generé a partir de referencias con ChatGPT y Gemini, y la del encabezado proviene de pngtree.com, bajo su licencia.
 
 ## Qué refiné personalmente
 La estructura a partir del sketch, el encabezado y los renders, la jerarquía tipográfica y los espaciados, los colores de la gráfica y la simplificación de los hallazgos.
