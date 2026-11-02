@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import {
   LuAirVent, LuArrowDown, LuArrowUp, LuBell, LuChartColumn, LuChartNoAxesColumnIncreasing, LuEarth, LuFileText, LuCheck, LuChevronDown, LuCircleHelp, LuClock, LuCoffee, LuCookingPot, LuCopy, LuDownload, LuFlaskConical, LuGlobe, LuHouse, LuLightbulb, LuMapPin, LuMenu,
   LuPanelLeft, LuPlug, LuReceipt, LuRefrigerator, LuRefreshCw, LuSettings, LuSettings2, LuSparkles, LuStore, LuTable2, LuTriangleAlert, LuUndo2, LuUser, LuX, LuZap, 
@@ -256,6 +256,16 @@ function Select({ id, label, value, onChange, options, dot, prefix }) {
     while (i >= 0 && i < options.length && !enabled(i)) i += dir
     if (i >= 0 && i < options.length) setActive(i)
   }
+  // Alinea el menú con el borde del select que deje más espacio, para que nunca se salga de la pantalla.
+  useLayoutEffect(() => {
+    if (!open || !menu.current || !btn.current) return
+    const b = btn.current.getBoundingClientRect()
+    const w = menu.current.offsetWidth
+    const vw = document.documentElement.clientWidth
+    const fitsLeft = b.left + w <= vw - 8
+    menu.current.style.left = fitsLeft ? '0' : 'auto'
+    menu.current.style.right = fitsLeft ? 'auto' : '0'
+  }, [open])
   useEffect(() => {
     if (!open) return
     const extra = (menu.current?.getBoundingClientRect().bottom ?? 0) + 12 - innerHeight
@@ -309,7 +319,7 @@ function Sedes({ sede, setSede, onDetail, from, setFrom, to, setTo }) {
   return (
     <section className="card" id="sedes" aria-labelledby="t-sedes">
       <div className="block-head">
-        <h2 id="t-sedes"><LuStore aria-hidden="true" />Consumo por sede</h2>
+        <h2 id="t-sedes"><LuStore aria-hidden="true" />Comparativa por sede</h2>
         <div className="month-pair">
           <Select id="mes-desde" dot="dot-before" label="Mes de comparación" value={from} onChange={setFrom} options={MESES.map((m, i) => ({ value: m.id, label: m.name, short: m.name.slice(0, 3), disabled: i >= iTo }))} />
           <Select id="mes-hasta" dot="dot-now" label="Mes actual" value={to} onChange={setTo} options={MESES.map((m, i) => ({ value: m.id, label: m.name, short: m.name.slice(0, 3), disabled: i <= iFrom }))} />
@@ -414,14 +424,13 @@ function Horas({ sede, setSede, hour, setHour, noData, otherMonth, onResetDemo, 
             </div>
           ) : (
           <div className="view-swap chart-view">
-          <p className="hour-read" aria-live="polite"><b>{hourLabel(hour)}</b>, {isClosed(hour) ? 'cerrado' : 'abierto'}: {num(v.now)} kWh. Septiembre: {num(v.prev)}.</p>
           <div className="chart">
             <div className="yaxis" aria-hidden="true">
               {[1, .5, 0].map((t) => <span key={t} style={{ bottom: `${t * 100}%` }}>{num(top * t)}<em>{t === 1 ? ' kWh' : ''}</em></span>)}
             </div>
             <div className="plot" ref={plot} tabIndex={0} role="slider" aria-label={`Consumo por hora de ${s.name}. Usa las flechas para cambiar de hora.`}
               aria-valuemin={0} aria-valuemax={23} aria-valuenow={idx} aria-valuetext={`${hourLabel(hour)}: ${num(v.now)} kWh en octubre y ${num(v.prev)} en septiembre`}
-              onKeyDown={onKey} onFocus={() => setTip(true)} onBlur={() => setTip(false)} onPointerEnter={() => setTip(true)} onPointerLeave={() => setTip(false)}
+              onKeyDown={onKey} onFocus={() => setTip(true)} onBlur={() => setTip(false)} onPointerEnter={() => setTip(true)} onPointerLeave={(e) => { if (e.pointerType !== 'touch') setTip(false) }}
               onPointerMove={pick} onPointerDown={pick}>
               <div className="closed-band" aria-hidden="true"><span>Local cerrado</span></div>
               {[1, .5].map((t) => <i key={t} className="gridline" style={{ bottom: `${t * 100}%` }} />)}

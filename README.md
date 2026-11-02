@@ -2,12 +2,12 @@
 
 Dos tareas en React con datos simulados, sin backend ni servicios reales de AI.
 
-**Demo:** https://emperatrizog.github.io/olibia-dashboard/
+**Demo:** https://emperatrizog.github.io/bia-dashboard-test/
 
 | Tarea | Demo | Código |
 |---|---|---|
-| 1. Uplift de Olibia | [Abrir](https://emperatrizog.github.io/olibia-dashboard/olibia/) | [`olibia/`](./olibia) |
-| 2. Experiencia para Bia | [Abrir](https://emperatrizog.github.io/bia-app/) | [`bia/`](./bia) |
+| 1. Uplift de Olibia | [Abrir](https://emperatrizog.github.io/bia-dashboard-test/olibia/) | [`olibia/`](./olibia) |
+| 2. Experiencia para Bia | [Abrir](https://emperatrizog.github.io/bia-dashboard-test/bia/) | [`bia/`](./bia) |
 
 ## Instrucciones
 
@@ -101,9 +101,9 @@ Una página para que una persona que administra tres cafeterías entienda por qu
 
 ## Qué probar
 1. **Entender la factura:** las tres cifras y «¿Qué está pasando?». «Ver detalles» lleva a los hallazgos y los resalta.
-2. **Cambiar de mes** con el selector del encabezado o comparar meses en Consumo por sede.
-3. **Explorar por sede:** elige una sede para actualizar la gráfica. «Ver más» abre su consumo por equipo.
-4. **Explorar por hora:** recorre la gráfica con el mouse o las flechas, o cámbiala por una tabla.
+2. **Cambiar de mes** con el selector del encabezado o compara dos meses en Comparativa por sede.
+3. **Explorar por sede:** elige una sede en Comparativa por sede o en el selector de la gráfica; ambos se mantienen sincronizados. «Ver más» abre el render y el consumo por equipo de cada cafetería.
+4. **Explorar por hora:** recorre la gráfica con el mouse, las flechas o el dedo para ver el tooltip, o cámbiala por una tabla.
 5. **Posibles causas:** ábrelas desde Hallazgos, confírmalas o descártalas. Si descartas las tres, cambia la recomendación.
 6. **Exportar factura:** descarga un CSV de ejemplo con confirmación.
 7. **Estados:** el botón «Estados de demo», al pie de la página, muestra carga, error y falta de datos.
@@ -123,7 +123,7 @@ React 19, esbuild, react-icons e Inter. Diseñé e iteré con Claude (Anthropic)
 La estructura a partir del sketch, el encabezado y los renders, la jerarquía tipográfica y los espaciados, los colores de la gráfica y la simplificación de los hallazgos.
 
 ## Tiempo dedicado
-**Unas 6,5 horas en total:** 2 horas de investigación y UX para definir el sketch y los datos, y unas 4,5 horas de construcción y refinamiento con Claude.
+**Unas 7,5 horas en total:** 2 horas de investigación y UX para definir el sketch y los datos, y unas 5,5 horas de construcción y refinamiento con Claude.
 
 ## Limitaciones
 - **Datos:** del enunciado salen la factura, el consumo, la tarifa y los 1.200 de los 1.500 kWh adicionales en una sede. El resto es un supuesto coherente: julio y agosto, el reparto de las otras sedes, el horario, el perfil por hora, los 840 kWh de Café Central con el local cerrado y el consumo por equipo. Los $672.000 de ahorro posible salen de 840 kWh × $800.

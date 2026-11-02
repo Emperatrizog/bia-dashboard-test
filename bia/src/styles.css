@@ -127,7 +127,6 @@ a.m-link:hover { background: #ffffff0d }
 .select-opt svg { width: 15px; height: 15px; color: var(--lime) }
 .select-opt.is-off { color: #7d869a; cursor: not-allowed }
 .hero-actions .select-btn { min-height: 36px; border-radius: 18px }
-.hero-actions .select-menu, .chart-tools .select-menu, #sedes .select:last-child .select-menu { left: auto; right: 0 }
 .pill-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 3px 12px; background: var(--raised); border: 1px solid #ffffff24; border-radius: 16px; font-size: 13px; font-weight: 500; white-space: nowrap; transition: border-color .15s, background .15s }
 .pill-btn:hover { border-color: #ffffff4d; background: #323948 }
 .pill-btn svg { width: 15px; height: 15px; color: var(--ink-2) }
@@ -169,8 +168,6 @@ a.m-link:hover { background: #ffffff0d }
 .dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block }
 .l-open { background: var(--open) } .l-closed { background: var(--closed) }
 .l-prev { width: 12px; height: 2px; background: var(--tick); display: inline-block }
-.hour-read { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; margin-top: -6px }
-.hour-read b { color: var(--ink); font-weight: 500 }
 .chart { position: relative; padding: 20px 0 22px 34px }
 .yaxis { position: absolute; left: 0; top: 20px; bottom: 22px; width: 30px; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums }
 .yaxis span { position: absolute; right: 5px; transform: translateY(50%) } .yaxis em { display: none }
@@ -195,7 +192,7 @@ a.m-link:hover { background: #ffffff0d }
 .view-swap { animation: swap .2s ease }
 @keyframes swap { from { opacity: 0 } }
 .chart-view { display: flex; flex-direction: column; gap: 12px }
-.table-view { display: flex; flex-direction: column; height: 217px }
+.table-view { display: flex; flex-direction: column; height: 192px }
 .table-note { font-size: 13px; color: var(--ink-2) }
 .table-wrap { overflow: auto; flex: 1; min-height: 0; border: 1px solid var(--hair); border-radius: 10px }
 table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums }
@@ -326,7 +323,7 @@ html:has(dialog[open]) { overflow: hidden }
 .toast button { font-weight: 600; color: var(--lime); text-decoration: underline; text-underline-offset: 3px }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding: 12px 0 }
 .footnote { color: var(--ink-3); font-size: 12.5px }
-.demo { position: relative }
+.demo { position: relative; margin-left: auto }
 .demo-btn { display: inline-flex; gap: 5px; align-items: center; min-height: 28px; padding: 2px 10px; font-size: 12.5px; color: var(--ink-2); border: 1px dashed var(--line-strong); border-radius: 14px }
 .demo-btn:hover { color: var(--ink) } .demo-btn svg { width: 14px; height: 14px }
 .demo-pop { position: absolute; right: 0; bottom: 36px; z-index: 30; width: 200px; margin: 0; padding: 9px 12px; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 12px; display: flex; flex-direction: column; gap: 3px; font-size: 13px; box-shadow: 0 12px 34px #000a }
