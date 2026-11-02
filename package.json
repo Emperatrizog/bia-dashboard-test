@@ -1,0 +1,12 @@
+{
+  "name": "prueba-design-engineer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm ci --prefix olibia && npm install --prefix bia",
+    "dev:bia": "npm run dev --prefix bia",
+    "dev:olibia": "npm run build --prefix olibia && cd olibia && npm start",
+    "test:olibia": "npm test --prefix olibia",
+    "build": "node scripts/build-all.mjs"
+  }
+}
